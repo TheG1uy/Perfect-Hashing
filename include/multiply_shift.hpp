@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <random>
+#include <ctime>
+
 using ulong = unsigned long long;
 
 template <typename Key>
@@ -46,7 +48,7 @@ void Multiply_Shift<Key>::rebuild_hash() {
 template <typename Key>
 size_t Multiply_Shift<Key>::hash(Key key) {
     if (!m) return 0;
-    return (a * key + b) >> (w - M);
+    return (a * key + b) >> (w - m);
 }
 
 #endif

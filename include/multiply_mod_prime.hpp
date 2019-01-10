@@ -4,6 +4,8 @@
 #include <vector>
 #include <random>
 #include <string>
+#include <ctime>
+
 using uint = unsigned int;
 
 template <typename Key>
@@ -14,9 +16,9 @@ public:
     void rebuild_hash();
     size_t hash(Key);
 private:
-    ulong a;
-    ulong b;
-    ulong p;
+    uint a;
+	uint b;
+	uint p;
     size_t m;
     static std::mt19937 gen;
     static std::uniform_int_distribution<> random;
