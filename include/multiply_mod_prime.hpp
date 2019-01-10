@@ -11,14 +11,14 @@ using uint = unsigned int;
 template <typename Key>
 class Multiply_Mod_Prime {
 public: 
-	Multiply_Mod_Prime() = delete;
+    Multiply_Mod_Prime() = delete;
     Multiply_Mod_Prime(size_t);
     void rebuild_hash();
     size_t hash(Key);
 private:
     uint a;
-	uint b;
-	uint p;
+    uint b;
+    uint p;
     size_t m;
     static std::mt19937 gen;
     static std::uniform_int_distribution<uint> random;
