@@ -21,14 +21,14 @@ private:
 	uint p;
     size_t m;
     static std::mt19937 gen;
-    static std::uniform_int_distribution<> random;
+    static std::uniform_int_distribution<uint> random;
 
 };
 
 template <typename Key>
 std::mt19937 Multiply_Mod_Prime<Key>::gen(time(0));
 template <typename Key>
-std::uniform_int_distribution<> Multiply_Mod_Prime<Key>::random(0, UINT32_MAX);
+std::uniform_int_distribution<uint> Multiply_Mod_Prime<Key>::random(0, UINT32_MAX);
 
 
 template <typename Key>
