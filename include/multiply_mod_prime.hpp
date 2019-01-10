@@ -45,11 +45,13 @@ void Multiply_Mod_Prime<Key>::rebuild_hash() {
 
 template <typename Key>
 size_t Multiply_Mod_Prime<Key>::hash(Key key) {
+    if (m == 1) return 0;
     return (a * key + b) % p % m;
 }
 
 template <>
 size_t Multiply_Mod_Prime<std::string >::hash(std::string key) {
+    if (m == 1) return 0;
     uint h = 1;
     for (auto it = key.begin(); it != key.end(); ++it)
         h = ((h*a) + *it) % p;
