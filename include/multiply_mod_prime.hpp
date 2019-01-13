@@ -34,7 +34,7 @@ std::uniform_int_distribution<uint> Multiply_Mod_Prime<Key>::random(0, UINT32_MA
 template <typename Key>
 Multiply_Mod_Prime<Key>::Multiply_Mod_Prime(size_t table_size) {
     m = table_size;
-    p = 1198754321;
+	m > 16 ? p = 1198754321 : p = 433494437;
     if (!(a = random(gen) % (p - 1))) ++a;
     b = random(gen) % (p - 1);
 }

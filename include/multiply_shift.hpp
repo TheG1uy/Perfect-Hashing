@@ -5,7 +5,7 @@
 #include <random>
 #include <ctime>
 
-using ulong = unsigned long long;
+using ullong = unsigned long long;
 
 template <typename Key>
 class Multiply_Shift {
@@ -15,19 +15,19 @@ public:
     void rebuild_hash();
     size_t hash(Key);
 private:
-    ulong a;
-    ulong b;
-    ulong one;
+    ullong a;
+    ullong b;
+    ullong one;
     size_t w;
     size_t m;
     static std::mt19937 gen;
-    static std::uniform_int_distribution<ulong> random;
+    static std::uniform_int_distribution<ullong> random;
 };
 
 template <typename Key>
 std::mt19937 Multiply_Shift<Key>::gen(time(0));
 template <typename Key>
-std::uniform_int_distribution<ulong> Multiply_Shift<Key>::random(0, ULLONG_MAX);
+std::uniform_int_distribution<ullong> Multiply_Shift<Key>::random(0, ULLONG_MAX);
 
 
 template <typename Key>
