@@ -7,15 +7,15 @@
 #include "multiply_shift.hpp"
 
 template <typename Key, typename Hash_Func>
-struct l_size {
-    size_t operator() (size_t size) {
+struct first_lvl_size {
+    size_t get(size_t size) {
         return size;
     }
 };
 
 template <typename Key>
-struct l_size<Key, Multiply_Shift<Key>> {
-    size_t operator() (size_t size) {
+struct first_lvl_size<Key, Multiply_Shift> {
+    size_t get(size_t size) {
         return 1 << (int)ceil(log2(size));
     }
 };
@@ -36,7 +36,8 @@ private:
 
 template <typename Key, typename Value, typename Hash_Func>
 First_LvL_Hash_Table<Key, Value, Hash_Func>::First_LvL_Hash_Table(size_t size) {
-    tables.resize(l_size<Key, Hash_Func>()(size));
+	first_lvl_size<Key, Hash_Func> size_calculator;
+    tables.resize(size_calculator.get(size));
     hfunc = new Hash_Func(tables.size());
 }
 
